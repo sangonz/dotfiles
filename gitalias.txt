@@ -1,0 +1,36 @@
+# Taken from https://github.com/GitAlias/gitalias
+[alias]
+    a = add
+    aa = add --all
+    
+    b = branch
+    
+    c = commit
+    cm = commit -m
+    cam = commit --amend --message
+    o = checkout
+    
+    s = status
+    ss = status --short
+    
+    lg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    
+    ls = ls-files
+    ls-ignored = ls-files --others --i --exclude-standard
+    
+    pf = pull --ff-only
+    
+    aliases = "!git config --get-regexp '^alias\\.' | cut -c 7- | sed 's/ / = /'"
+    
+    # List number of commits for each contributor
+    contrib = git log --format='%an' | sort | uniq -c | sort -rn | head
+    
+    # Reset/Undo
+    uncommit = reset --soft HEAD~1
+    unadd = reset HEAD
+    
+    # Search for a given string in all patches and print commit messages.
+    #     git searchcommits foobar
+    #     git searchcommits foobar src/lib
+    searchcommits = !"f() { query=\"$1\"; shift; git log -S\"$query\" \"$@\"; }; f \"$@\""
