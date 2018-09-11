@@ -11,14 +11,14 @@ DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Get the directory with a tilde instead of full path
 dotfile_tilde=$(cd "$DOTFILES_DIR" && dirs +0)
 
-if [[ `grep "$dotfile_tilde/.bash_profile" ~/.bash_profile` ]]; then
+if [[ -r ~/.bash_profile && `grep "$dotfile_tilde/.bash_profile" ~/.bash_profile` ]]; then
     echo ".bash_profile already installed"
 else
     echo "Installing in current .bash_profile"
     echo ". $dotfile_tilde/.bash_profile" >> ~/.bash_profile
 fi
 
-if [[ `grep "path = $dotfile_tilde/gitalias.txt" ~/.gitconfig` ]]; then
+if [[ -r ~/.gitconfig && `grep "path = $dotfile_tilde/gitalias.txt" ~/.gitconfig` ]]; then
     echo "~/.gitconfig already contains the alias"
 else
     echo "Installing .gitconfig alias"
