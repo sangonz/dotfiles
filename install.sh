@@ -8,6 +8,12 @@ export DOTFILES_DIR
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 
-# Symlinks
+# Get the directory with a tilde instead of full path
+dotfile_tilde=$(cd "$DOTFILES_DIR" && dirs +0)
 
-ln -sfv "$DOTFILES_DIR/.bash_profile" ~
+if [[ `grep "$dotfile_tilde/.bash_profile" ~/.bash_profile` ]]; then
+    echo "Already installed in .bash_profile"
+else
+    echo "Installing in current .bash_profile"
+    echo ". $dotfile_tilde/.bash_profile" >> ~/.bash_profile
+fi
