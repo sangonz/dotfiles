@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# List all network interfaces
+#
+
+ifconfig | grep -v '^[[:space:]]' | cut -d: -f1

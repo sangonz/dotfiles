@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# 
+# Resizes an image to a maximum dimension and optimizes it.
+#
+# img-resize 500 img.jpg
+# img-resize img.png      # Resizes to 1024 px by default
+
+size=$1
+[ -z $size ] && size=1024
+imgs="${@:2}"
+convert -strip -interlace Plane -sampling-factor 4:2:0 -define jpeg:dct-method=float -quality 85% -resize $size $imgs

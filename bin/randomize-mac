@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+interface="$1"
+
+
+if [[ ! "$interface" ]]; then
+    echo "USAGE: `basename $0` interface"
+    echo "e.g.: `basename $0` eth0"
+    exit 1
+fi
+
+if [[ ! `which randommac` ]]; then
+    echo "The randommac script is not found. Exit."
+    exit 1
+fi
+
+ifconfig $interface ether `randommac`
+
