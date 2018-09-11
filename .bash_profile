@@ -24,8 +24,8 @@ mkcd() { mkdir -p "$@" && cd "$@"; }
 alias agg='ag --hidden -iu'
 alias ncdu="ncdu --color dark -r -x --exclude .git --exclude .meteor --exclude node_modules"
 
-# Command --- prints a horizontal line
-alias -- ---="printf '%*s\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' —"
+# Command - prints a horizontal line
+alias -- -="printf '\033[33m%*s\033[0m\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' —"
 
 
 # Variables
