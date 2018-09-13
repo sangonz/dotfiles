@@ -18,7 +18,7 @@ alias cdd='cd ~/Desktop'
 alias egrep='egrep -n --color=auto'
 mkcd() { mkdir -p "$@" && cd "$@"; }
 
-[ `which exa` ] && alias ll='exa -alF --git'
+[ `which exa` ] && alias ls='exa' && alias ll='exa -alF --git'
 [ `which bat` ] && alias cat='bat --style=plain'
 
 alias agg='ag --hidden -iu'
