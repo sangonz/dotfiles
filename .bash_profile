@@ -30,7 +30,8 @@ alias -- -="printf '\033[33m%*s\033[0m\n' \"${COLUMNS:-$(tput cols)}\" '' | tr '
 
 # Variables
 
-SHELL=/bin/bash
+# Colored man with the pager most
+[ `which most` ] && export PAGER='most'
 
 export EDITOR='vi'
 export CLICOLOR=1
