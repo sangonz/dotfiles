@@ -5,7 +5,30 @@
 # img-resize 500 img.jpg
 # img-resize img.png      # Resizes to 1024 px by default
 
-size=$1
-[ -z $size ] && size=1024
-imgs="${@:2}"
-convert -strip -interlace Plane -sampling-factor 4:2:0 -define jpeg:dct-method=float -quality 85% -resize $size $imgs
+
+function usage {
+    echo "
+Usage: `basename $0` [-s size] input output
+
+Options:
+  -s size  Size of the resulting image (default 1024)
+  -h       Show this help
+"
+}
+
+# getopts https://stackoverflow.com/a/28466267
+while getopts "s:" arg; do
+  case $arg in
+    s )  size="$OPTARG" ;;
+    \? ) usage ; exit 2 ;;
+  esac
+done
+shift $((OPTIND-1))
+
+[ $size ] || size='1024'
+imgs="$@"
+
+# echo "Size = $size"
+# echo "Images = $imgs"
+
+mogrify -strip -interlace Plane -sampling-factor 4:2:0 -define jpeg:dct-method=float -quality 85% -resize $size $imgs
