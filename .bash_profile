@@ -21,8 +21,8 @@ mkcd() { mkdir -p "$@" && cd "$@"; }
 [ `which exa` ] && alias ls='exa' && alias ll='exa -alF --git'
 [ `which bat` ] && alias cat='bat --style=plain'
 
-alias agg='ag --hidden -iu'
-alias ncdu="ncdu --color dark -r -x --exclude .git --exclude .meteor --exclude node_modules"
+[ `which ag` ] && alias agg='ag --hidden -iu'
+[ `which ncdu` ] && alias ncdu="ncdu --color dark -r -x --exclude .git --exclude .meteor --exclude node_modules"
 
 # Command - prints a horizontal line
 alias -- -="printf '\033[33m%*s\033[0m\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' —"
@@ -33,12 +33,18 @@ alias -- -="printf '\033[33m%*s\033[0m\n' \"${COLUMNS:-$(tput cols)}\" '' | tr '
 # Colored man with the pager most
 [ `which most` ] && export PAGER='most'
 
-export EDITOR='vi'
+export EDITOR='vim'
 export CLICOLOR=1
 export LSCOLORS=ExFxGxDxCxegedabagacad
 
 ## Prompt
 if [ "$TERM" != 'dumb' ] && [ -n "$BASH" ] && [ -n "$PS1" ]; then
-	export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$ \[\033[00m\]'
+    RED='\[\033[01;31m\]'
+    GREEN='\[\033[01;32m\]'
+    YELLOW='\[\033[01;33m\]'
+    BLUE='\[\033[01;34m\]'
+    WHITE='\[\033[01;37m\]'
+    RESET='\[\033[00m\]'
+	export PS1="$GREEN\u$WHITE@$YELLOW\h$BLUE \W \$ $RESET"
 fi
 
