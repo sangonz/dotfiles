@@ -11,24 +11,27 @@ function usage {
 Usage: `basename $0` [-s size] input output
 
 Options:
-  -s size  Size of the resulting image (default 1024)
-  -h       Show this help
+  -s size    Size of the resulting image (default 1024)
+  -q quality Quality of the resulting image (default 90%)
+  -h         Show this help
 "
 }
 
 # getopts https://stackoverflow.com/a/28466267
-while getopts "s:" arg; do
+while getopts "s:q:" arg; do
   case $arg in
     s )  size="$OPTARG" ;;
+    q )  quality="$OPTARG" ;;
     \? ) usage ; exit 2 ;;
   esac
 done
 shift $((OPTIND-1))
 
 [ $size ] || size='1024'
+[ $quality ] || quality='85%'
 imgs="$@"
 
 # echo "Size = $size"
 # echo "Images = $imgs"
 
-mogrify -strip -interlace Plane -sampling-factor 4:2:0 -define jpeg:dct-method=float -quality 85% -resize $size $imgs
+mogrify -strip -interlace Plane -sampling-factor 4:2:0 -define jpeg:dct-method=float -quality "$quality" -resize "$size" $imgs
