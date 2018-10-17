@@ -45,6 +45,6 @@ if [ "$TERM" != 'dumb' ] && [ -n "$BASH" ] && [ -n "$PS1" ]; then
     BLUE='\[\033[01;34m\]'
     WHITE='\[\033[01;37m\]'
     RESET='\[\033[00m\]'
-	export PS1="$GREEN\u$WHITE@$YELLOW\h$BLUE \W \$ $RESET"
+    export PS1="$GREEN\u$YELLOW@\h$BLUE \W \$ $RESET"
 fi
 
