@@ -10,47 +10,27 @@ P_ERR="\e[31m[no]\e[0m"
 export DOTFILES_DIR
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-
 # Get the directory with a tilde instead of full path
 dotfile_tilde=$(cd "$DOTFILES_DIR" && dirs +0)
 
-function install {
-    file="$1"
-    search="$2"
-    toadd="$3"
-    [[ -z $toadd ]] && toadd="$search"
-    
-    # Caution: ~ doesn't expand within quotes
-    if [[ -r ~/$file && `grep "$search" ~/$file` ]]; then
-        printf "$P_ERR $file\n"
-    else
-        printf "$toadd" >> ~/$file
-        printf "$P_CHK $file\n"
-    fi
-}
-
-
-# Install .bashrc or .bash_profile alternatively
-if [ -r ~/.bashrc ]; then
-    install .bashrc ". $dotfile_tilde/.bash_profile"
-else
-    install .bash_profile ". $dotfile_tilde/.bash_profile"
-fi
-
 
 # Install .gitconfig
-install .gitconfig "path = $dotfile_tilde/gitalias.txt" "[include]\n    path = $dotfile_tilde/gitalias.txt"
+# install .gitconfig "path = $dotfile_tilde/gitalias.txt" "[include]\n    path = $dotfile_tilde/gitalias.txt"
 
 # Install vim
 function install_ln {
     file="$1"
-    if [[ -r ~/$file ]]; then
+    dotfile=".$file"
+    if [[ -e ~/$dotfile ]]; then
         printf "$P_ERR $file\n"
     else
-        ln -s "$DOTFILES_DIR/$file" ~/$file
-        printf "$P_CHK $file\n"
+        echo ln -s "$DOTFILES_DIR/$file" ~/$dotfile
+        ln -s "$DOTFILES_DIR/$file" ~/$dotfile
+        printf "$P_CHK $dotfile\n"
     fi
 }
 
-install_ln .vim
-install_ln .vimrc
+install_ln bashrc
+install_ln vim
+install_ln vimrc
+
