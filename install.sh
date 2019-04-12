@@ -24,7 +24,6 @@ function install_ln {
     if [[ -e ~/$dotfile ]]; then
         printf "$P_ERR $file\n"
     else
-        echo ln -s "$DOTFILES_DIR/$file" ~/$dotfile
         ln -s "$DOTFILES_DIR/$file" ~/$dotfile
         printf "$P_CHK $dotfile\n"
     fi
@@ -33,4 +32,4 @@ function install_ln {
 install_ln bashrc
 install_ln vim
 install_ln vimrc
-
+install_ln gitconfig

@@ -31,7 +31,7 @@ alias -- -="printf '\033[33m%*s\033[0m\n' \"${COLUMNS:-$(tput cols)}\" '' | tr '
 # Variables
 
 # Colored man with the pager most
-[ `which most` ] && export PAGER='most'
+[ `which most 2> /dev/null` ] && export PAGER='most'
 
 export EDITOR='vim'
 export CLICOLOR=1
