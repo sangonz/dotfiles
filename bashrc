@@ -3,12 +3,6 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-if [ -d "$HOME/.dotfiles" ]; then
-    export PATH="$HOME/.dotfiles/bin:$PATH"
-else
-    echo "Unable to find dotfiles!"
-fi
-
 # Alias
 
 alias ..="cd .."
@@ -16,22 +10,17 @@ alias ...="cd .. && cd .."
 alias ll='ls -alF'
 alias cdd='cd ~/Desktop'
 alias egrep='egrep -n --color=auto'
+
 mkcd() { mkdir -p "$@" && cd "$@"; }
 
 [ `which exa 2> /dev/null` ] && alias ls='exa --classify' && alias ll='exa -alF --git --classify'
 [ `which bat 2> /dev/null` ] && alias cat='bat --style=plain'
-
 [ `which ag 2> /dev/null` ] && alias agg='ag --hidden -iu'
 [ `which ncdu 2> /dev/null` ] && alias ncdu="ncdu --color dark -r -x --exclude .git --exclude .meteor --exclude node_modules"
-
-# Command - prints a horizontal line
-alias -- -="printf '\033[33m%*s\033[0m\n' \"${COLUMNS:-$(tput cols)}\" '' | tr ' ' —"
+[ `which most 2> /dev/null` ] && export PAGER='most'
 
 
 # Variables
-
-# Colored man with the pager most
-[ `which most 2> /dev/null` ] && export PAGER='most'
 
 export EDITOR='vim'
 export CLICOLOR=1

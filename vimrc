@@ -62,7 +62,8 @@ vnoremap <s-k> :m '<-2<cr>gv=gv
 " Quick save & exit
 noremap <leader>s :update<cr>
 noremap <leader>w :update<cr>
-noremap <leader>q :update<cr>:q<cr>
+noremap <leader>q :q<cr>
+noremap <leader>wq :update<cr>:q<cr>
 
 " Tabs
 noremap <leader>t :tabnew<cr>
