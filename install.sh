@@ -10,7 +10,7 @@ P_ERR="\e[31m  ✘ \e[0m"
 
 function install_ln {
     file="$1"
-    target=".dotfiles/$file"
+    target="$HOME/.dotfiles/$file"
     dest="$HOME/.$file"
 
     # Make containing dirs
@@ -30,6 +30,10 @@ function install_ln {
         fi
     fi
 }
+if [ `pwd` != "$HOME/.dotfiles" ]; then
+    echo "ERROR: .dotfiles is not in $HOME"
+    exit
+fi
 
 install_ln bashrc
 install_ln bash_profile
