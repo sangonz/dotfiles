@@ -32,8 +32,8 @@ alias ncdu="ncdu --color dark -r -x --exclude .git --exclude .meteor --exclude n
 
 # fzf
 export FZF_DEFAULT_OPTS="--preview '_bat_fzf_fix {}'"
-[ /usr/share/fzf/completion.bash ] && . /usr/share/fzf/completion.bash
-[ /usr/share/fzf/key-bindings.bash ] && . /usr/share/fzf/key-bindings.bash
+[ -e /usr/share/fzf/completion.bash ] && . /usr/share/fzf/completion.bash
+[ -e /usr/share/fzf/key-bindings.bash ] && . /usr/share/fzf/key-bindings.bash
 
 # Colors
 alias ll='ls -alF'
