@@ -24,6 +24,7 @@ call plug#begin()
     Plug 'ryanoasis/vim-devicons'
     Plug 'junegunn/vim-easy-align'
     Plug 'morhetz/gruvbox'
+    Plug 'tpope/vim-surround'
     " Plug 'terryma/vim-multiple-cursors'
     " Plug 'kana/vim-textobj-line'
 call plug#end()
