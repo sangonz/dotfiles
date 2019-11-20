@@ -31,7 +31,8 @@ call plug#end()
 
 syntax on
 set encoding=utf-8
-colorscheme gruvbox " https://github.com/morhetz/gruvbox
+colorscheme "Tomorrow Night"
+" colorscheme gruvbox " https://github.com/morhetz/gruvbox
 "colorscheme industry
 "colorscheme molokai
 "let g:molokai_original = 1
