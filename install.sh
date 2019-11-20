@@ -35,7 +35,7 @@ if [ `pwd` != "$HOME/.dotfiles" ]; then
     exit
 fi
 
-install_ln bashrc
+install_ln bash_aliases
 install_ln bash_profile
 install_ln vim
 install_ln vimrc
