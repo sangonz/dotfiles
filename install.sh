@@ -8,32 +8,36 @@ P_CHK="\e[32m  ✔ \e[0m"
 P_NEW="\e[32m★ ✔ \e[0m"
 P_ERR="\e[31m  ✘ \e[0m"
 
+link_dest() {
+    case "$(uname)" in
+        "Linux")
+            readlink -f $1
+            ;;
+        "Darwin")
+            stat -f '%Y' $1
+            ;;
+        *)
+            echo "Only Linux and macOS supported"
+            exit -1
+            ;;
+    esac
+}
+
 function install_ln {
     file="$1"
-    target="$HOME/.dotfiles/$file"
+    target=".dotfiles/$file"
     dest="$HOME/.$file"
-
-    # Make containing dirs
-    mkdir -p `dirname $dest`
-
     if [[ ! -e $dest ]]; then
-        # Create the link
         ln -s $target $dest
         printf "$P_NEW $dest\n"
     else
-        if [[ $(readlink -e $dest) == $(readlink -e $file) ]]; then
-            # Link already exists and is correct
+        if [[ $(link_dest $dest) == "$target" ]]; then
             printf "$P_CHK $dest\n"
         else
-            # Destination exists and does not link to dotfile's
             printf "$P_ERR $dest\n"
         fi
     fi
 }
-if [ `pwd` != "$HOME/.dotfiles" ]; then
-    echo "ERROR: .dotfiles is not in $HOME"
-    exit
-fi
 
 install_ln bash_aliases
 install_ln bash_profile
@@ -41,6 +45,3 @@ install_ln vim
 install_ln vimrc
 install_ln gitconfig
 
-for f in `find config -type f`; do
-    install_ln $f
-done
