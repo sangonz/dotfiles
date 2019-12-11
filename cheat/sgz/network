@@ -1,53 +1,44 @@
-Network tools
+# Network tools
 
-netstat - Network Statistics
+# netstat - Network Statistics
+netstat      # Displays open portsnetstat -r   # Routing table
 
-    netstat      # Displays open ports
-    netstat -r   # Routing table
+# nmap - Scan open ports
 
-nmap - Scan open ports
+# nc - Netcat: amazing TCP/UDP tool
+# > doc nc
 
-nc - Netcat: amazing TCP/UDP tool
-> doc nc
+# telnet
 
-telnet
+# curl
 
-curl
+# tcpdump - TCP sniffer
 
-tcpdump - TCP sniffer
+# traceroute - Show the route of packets
+traceroute -I google.com
 
-traceroute - Show the route of packets
+# iperf - Assess bandwidth available between two hosts
 
-    traceroute -I google.com
-
-iperf - Assess bandwidth available between two hosts
-
-arp - Print the ARP table
-
-    $ arp -a
+# arp - Print the ARP table
+$ arp -a
 
 
-## DNS
+# ## DNS
 
-host - Find the IP of a host
+# host - Find the IP of a host
+$ host amazon.comamazon.com has address 176.32.98.166amazon.com has address 205.251.242.103
 
-    $ host amazon.com
-    amazon.com has address 176.32.98.166
-    amazon.com has address 205.251.242.103
+# hostname - Print the name of the host in the network
+$ hostname -fmyhost.company.com
 
-hostname - Print the name of the host in the network
+# dig - Dump DNS records. Uses the OS resolver.
 
-    $ hostname -f
-    myhost.company.com
-
-dig - Dump DNS records. Uses the OS resolver.
-
-nslookup - Perform a DNS resolution. Uses its own resolver.
+# nslookup - Perform a DNS resolution. Uses its own resolver.
 
 
 
----
+# ---
 
-More:
+# More:
 
-- [miglen/linux-networking-toools.md](https://gist.github.com/miglen/70765e663c48ae0544da08c07006791f)
+# - [miglen/linux-networking-toools.md](https://gist.github.com/miglen/70765e663c48ae0544da08c07006791f)

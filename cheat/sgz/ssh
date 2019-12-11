@@ -1,12 +1,9 @@
-SSH keys management
+# SSH keys management
 
 
-Create RSA pair in `~/.ssh/id_rsa`:
+# Create RSA pair in `~/.ssh/id_rsa`:
+ssh-keygen -t rsa
 
-    ssh-keygen -t rsa
-
-Copy public key to another host. 
-This simply appends the public key to the server's `~/.ssh/authorized_keys`:
-
-    ssh-copy-id user@server
-    ssh-copy-id -i ~/.ssh/id_rsa.pub user@server
+# Copy public key to another host. 
+# This simply appends the public key to the server's `~/.ssh/authorized_keys`:
+ssh-copy-id user@serverssh-copy-id -i ~/.ssh/id_rsa.pub user@server

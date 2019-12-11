@@ -1,15 +1,12 @@
-Find files
+# Find files
 
-Find by name and file type:
+# Find by name and file type:
+find . -name "*.txt" -type f
 
-    find . -name "*.txt" -type f
+# Execute a command for every found file:
+find . -name "*.md" -exec cat {} \;
 
-Execute a command for every found file:
+# `xargs` does the same more efficiently
+find . -name "*.md" | xargs cat
 
-    find . -name "*.md" -exec cat {} \;
-
-`xargs` does the same more efficiently
-
-    find . -name "*.md" | xargs cat
-
-@see doc ag
+# @see doc ag

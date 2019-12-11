@@ -1,5 +1,4 @@
-Create links
+# Create links
 
-Symbolic link:
-
-    ln -s source target
+# Symbolic link:
+ln -s source target

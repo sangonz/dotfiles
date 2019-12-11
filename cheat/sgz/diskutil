@@ -1,5 +1,4 @@
-Disk utility for macOS
+# Disk utility for macOS
 
-Format a drive using FAT32 and MBR (Disk Utility app forces GPT):
-
-    sudo diskutil eraseDisk FAT32 NAME MBR disk5
+# Format a drive using FAT32 and MBR (Disk Utility app forces GPT):
+sudo diskutil eraseDisk FAT32 NAME MBR disk5

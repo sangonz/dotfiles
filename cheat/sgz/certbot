@@ -1,24 +1,19 @@
-Free SSL Certifications from Let's Encrypt
+# Free SSL Certifications from Let's Encrypt
 
-## Use for nginx
+# ## Use for nginx
 
-Locate your server name in `/etc/nginx/sites-enabled/<site>`:
+# Locate your server name in `/etc/nginx/sites-enabled/<site>`:
+server_name example.com www.example.com;
 
-    server_name example.com www.example.com;
+# Create a certification for that site:
+sudo certbot --nginx -d example.com -d www.example.com
 
-Create a certification for that site:
+# To renew the certificate:
+sudo certbot renew --dry-run
 
-    sudo certbot --nginx -d example.com -d www.example.com
+# List certificates:
+sudo certbot certificates
 
-To renew the certificate:
-
-    sudo certbot renew --dry-run
-
-List certificates:
-
-    sudo certbot certificates
-
-Revoke certificate:
-
-    sudo certbot revoke --cert-path /etc/letsencrypt/live/<DOMAIN>/fullchain.pem
+# Revoke certificate:
+sudo certbot revoke --cert-path /etc/letsencrypt/live/<DOMAIN>/fullchain.pem
 

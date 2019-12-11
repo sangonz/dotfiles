@@ -1,5 +1,4 @@
-Transliterate
+# Transliterate
 
-To lowercase:
-
-    tr '[:upper:]' '[:lower:]'
+# To lowercase:
+tr '[:upper:]' '[:lower:]'
