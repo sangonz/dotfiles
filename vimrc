@@ -16,7 +16,8 @@ call plug#begin()
     Plug 'airblade/vim-gitgutter'       " Git changes in left margin
     Plug 'vimwiki/vimwiki'              " Vim wiki: <leader>ww  :h vimwiki
     Plug 't9md/vim-quickhl'             "
-    Plug 'mileszs/ack.vim'
+    Plug 'mileszs/ack.vim'              " Search in all files. :Ack text
+    Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
     Plug 'junegunn/fzf.vim'
     Plug 'ryanoasis/vim-devicons'
     Plug 'junegunn/vim-easy-align'
@@ -83,13 +84,24 @@ noremap <leader>w :wa<cr>
 noremap <leader>s :wa<cr>
 noremap <leader><s-q> :xa<cr>
 
+" Split navigations
+" nnoremap <c-j> <c-w><c-j>
+" nnoremap <c-k> <c-w><c-k>
+" nnoremap <c-l> <c-w><c-l>
+" nnoremap <c-h> <c-w><c-h>
+nmap <c-w>+ <c-w>+<SID>ws
+nmap <c-w>- <c-w>-<SID>ws
+nn <script> <SID>ws+ <c-w>+<SID>ws
+nn <script> <SID>ws- <c-w>-<SID>ws
+nmap <SID>ws <Nop>
+
 " Buffers
 :nnoremap <Leader>q :Bdelete<CR>
 map <leader>j :bn<cr>
 map <leader>k :bp<cr>
 
 " Switch line wrapping
-noremap <c-w> :set wrap!<cr>
+" noremap <c-w> :set wrap!<cr>
 
 " Keep visual mode after indent
 vnoremap > >gv
