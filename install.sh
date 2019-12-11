@@ -31,8 +31,6 @@ function install_ln {
         ln -s $target $dest
         printf "$P_NEW $dest\n"
     else
-        echo target: $target
-        echo linkds: $(link_dest $dest)
         if [[ $(link_dest $dest) == "$target" ]]; then
             printf "$P_CHK $dest\n"
         else
