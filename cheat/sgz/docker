@@ -1,0 +1,32 @@
+Container virtualization
+
+Install and use in the [DigitalOcean Docker tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
+
+**Image:** Files and config that can be instantiated.
+**Container:** Instantiation of an image. Can be run/stop/start...
+
+Basic docker:
+
+    docker search ubuntu
+    docker pull ubuntu
+
+    # run or pull from Docker Hub and run
+    docker run hello-world
+
+Manage images
+
+    docker images
+    docker rmi [imageid]
+
+Run and get console:
+
+    docker run -it ubuntu
+
+Manage containers:
+
+    docker ps     # Show runnint containers
+    docker ps -a  # Show all (stopped inc.)
+
+    docker start [id|name]
+    docker stop  [id|name]
+    docker rm    [id|name]

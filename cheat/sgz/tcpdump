@@ -1,0 +1,6 @@
+Packet filter
+
+    tcpdump -i eth0
+    tcpdump -i eth0 port 53
+    tcpdump -i eth0 udp port 53
+

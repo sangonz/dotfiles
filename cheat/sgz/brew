@@ -1,0 +1,14 @@
+macOS software manager
+
+
+List dependencies of installed packages in a tree:
+
+    brew deps --tree --installed
+
+List installed packages
+
+    # All
+    brew list
+    
+    # Only top-level packages
+    brew leaves

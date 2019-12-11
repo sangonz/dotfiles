@@ -1,0 +1,16 @@
+NoSQL database
+
+Main info:
+
+    db.help()
+    show databases
+    db.getCollectionNames()
+
+Access a database collection:
+
+    db.mycollection.find()
+    db.mycollection.findOne()
+
+Remove object:
+
+    db.courses.remove({"_id": <id>})

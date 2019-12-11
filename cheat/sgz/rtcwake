@@ -1,0 +1,10 @@
+Sleep system until date
+
+Wake up your system at a specific time:
+
+    rtcwake -m no -l -t $(date +%s -d 'tomorrow 10:00')
+
+    # -m no: don't suspend the PC, only set RTC wakeup time
+    # -l: local time set in BIOS
+    # -t [...]: set the wake time to date
+

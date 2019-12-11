@@ -1,0 +1,75 @@
+Arch Linux package manager
+
+
+# Sync database
+
+Install package:
+
+    pacman -S package
+    pacman -sync package
+
+Update all package:
+
+    pacman -S -u
+    pacman --sync --update
+
+Search for a package:
+
+    pacman -S -s packagename
+    pacman --sync --search packagename
+
+Refresh the sync database:
+
+    pacman -S -y
+    pacman --sync --refresh
+
+
+# Query
+
+Print all installed packages:
+
+    pacman -Q
+    pacman --query
+
+Info of a package:
+
+    pacman -Q -i package
+    pacman -query --info package
+
+Packages installed as dependencies:
+
+    pacman -Q -d
+    pacman --query --deps
+
+Orphaned dependencies:
+
+    pacman -Q -d -t
+
+Check health of a package (remove package to show all packages):
+
+    pacman -Q -k packages
+    pacman --query --check packages
+    package: 1208 total files, 0 missing files
+
+List all files owned by a package:
+
+    pacman -Q -l package
+    pacman --query --list package
+
+Outdated packages:
+
+    pacman -Q -u
+    pacman --query --upgrades
+
+# AUR packages
+
+Warning: `yaourt` is not secure and is deprecated. It was used before.
+
+To instal a package:
+
+Localize the package in <https://aur.archlinux.org> and then:
+
+    git clone https://aur.archlinux.org/PACKAGE.git
+    cd PACKAGE
+    makepkg -Acis
+

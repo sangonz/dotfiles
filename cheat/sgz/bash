@@ -1,0 +1,8 @@
+Bourne shell
+
+
+`fc`
+: Edit the last command in an editor
+
+`<Ctrl+x+e>`
+: Edit the curent command in the editor

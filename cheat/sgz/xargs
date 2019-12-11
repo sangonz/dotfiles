@@ -1,0 +1,11 @@
+Construct argument lists
+
+Run a command for every pipe line:
+
+    ls *.txt | xargs wc -l
+
+Use the substitution in the middle of the command
+
+    ls * | xargs -I file echo "-> file"
+    ls * | xargs -I {}   echo "-> {}"
+    ls * | xargs -I %    echo "-> %"

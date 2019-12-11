@@ -1,0 +1,15 @@
+Find files
+
+Find by name and file type:
+
+    find . -name "*.txt" -type f
+
+Execute a command for every found file:
+
+    find . -name "*.md" -exec cat {} \;
+
+`xargs` does the same more efficiently
+
+    find . -name "*.md" | xargs cat
+
+@see doc ag
