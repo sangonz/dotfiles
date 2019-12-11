@@ -44,4 +44,5 @@ install_ln bash_profile
 install_ln vim
 install_ln vimrc
 install_ln gitconfig
+install_ln zshrc
 
