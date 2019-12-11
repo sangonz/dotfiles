@@ -10,11 +10,7 @@ P_ERR="\e[31m  ✘ \e[0m"
 
 link_dest() {
     case "$(uname)" in
-<<<<<<< HEAD
-	"Linux")
-=======
     	"Linux")
->>>>>>> Refactor cheat git
             readlink $1
             ;;
         "Darwin" | "FreeBSD")
