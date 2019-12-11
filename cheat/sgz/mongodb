@@ -1,16 +1,10 @@
-NoSQL database
+# NoSQL database
 
-Main info:
+# Main info:
+db.help()show databasesdb.getCollectionNames()
 
-    db.help()
-    show databases
-    db.getCollectionNames()
+# Access a database collection:
+db.mycollection.find()db.mycollection.findOne()
 
-Access a database collection:
-
-    db.mycollection.find()
-    db.mycollection.findOne()
-
-Remove object:
-
-    db.courses.remove({"_id": <id>})
+# Remove object:
+db.courses.remove({"_id": <id>})

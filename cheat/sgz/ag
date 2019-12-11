@@ -1,0 +1,13 @@
+# The Silver Searcher: grep replacement
+
+# Search in HTML files:
+ag --html pattern
+
+# List all javascript files
+ag --js -l
+
+# Search in file names (like `find`):
+ag -g pattern
+
+# Include hidden and unrestricted files (`.gitignore` ...):
+ag --hidden -u [...]

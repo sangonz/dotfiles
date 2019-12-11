@@ -1,22 +1,15 @@
-Push notifications
+# Push notifications
 
-<https://github.com/variadico/noti>
+# <https://github.com/variadico/noti>
 
-Use:
+# Use:
+noti -t "Title"noti -t "Title" -m "Message"
 
-    noti -t "Title"
-    noti -t "Title" -m "Message"
+# Configuration:
 
-Configuration:
+# - `.noti.yaml`:
+    ---    pushbullet:      accessToken: 1234567890abcdefg      deviceIden: 1234567890abcdefg
 
-- `.noti.yaml`:
-
-        ---
-        pushbullet:
-          accessToken: 1234567890abcdefg
-          deviceIden: 1234567890abcdefg
-
-- Envorinment variable:
-
-        export NOTI_DEFAULT='pushbullet'
+# - Envorinment variable:
+    export NOTI_DEFAULT='pushbullet'
 

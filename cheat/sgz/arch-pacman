@@ -1,75 +1,50 @@
-Arch Linux package manager
+# Arch Linux package manager
 
 
-# Sync database
+# # Sync database
 
-Install package:
+# Install package:
+pacman -S packagepacman -sync package
 
-    pacman -S package
-    pacman -sync package
+# Update all package:
+pacman -S -upacman --sync --update
 
-Update all package:
+# Search for a package:
+pacman -S -s packagenamepacman --sync --search packagename
 
-    pacman -S -u
-    pacman --sync --update
-
-Search for a package:
-
-    pacman -S -s packagename
-    pacman --sync --search packagename
-
-Refresh the sync database:
-
-    pacman -S -y
-    pacman --sync --refresh
+# Refresh the sync database:
+pacman -S -ypacman --sync --refresh
 
 
-# Query
+# # Query
 
-Print all installed packages:
+# Print all installed packages:
+pacman -Qpacman --query
 
-    pacman -Q
-    pacman --query
+# Info of a package:
+pacman -Q -i packagepacman -query --info package
 
-Info of a package:
+# Packages installed as dependencies:
+pacman -Q -dpacman --query --deps
 
-    pacman -Q -i package
-    pacman -query --info package
+# Orphaned dependencies:
+pacman -Q -d -t
 
-Packages installed as dependencies:
+# Check health of a package (remove package to show all packages):
+pacman -Q -k packagespacman --query --check packagespackage: 1208 total files, 0 missing files
 
-    pacman -Q -d
-    pacman --query --deps
+# List all files owned by a package:
+pacman -Q -l packagepacman --query --list package
 
-Orphaned dependencies:
+# Outdated packages:
+pacman -Q -upacman --query --upgrades
 
-    pacman -Q -d -t
+# # AUR packages
 
-Check health of a package (remove package to show all packages):
+# Warning: `yaourt` is not secure and is deprecated. It was used before.
 
-    pacman -Q -k packages
-    pacman --query --check packages
-    package: 1208 total files, 0 missing files
+# To instal a package:
 
-List all files owned by a package:
-
-    pacman -Q -l package
-    pacman --query --list package
-
-Outdated packages:
-
-    pacman -Q -u
-    pacman --query --upgrades
-
-# AUR packages
-
-Warning: `yaourt` is not secure and is deprecated. It was used before.
-
-To instal a package:
-
-Localize the package in <https://aur.archlinux.org> and then:
-
-    git clone https://aur.archlinux.org/PACKAGE.git
-    cd PACKAGE
-    makepkg -Acis
+# Localize the package in <https://aur.archlinux.org> and then:
+git clone https://aur.archlinux.org/PACKAGE.gitcd PACKAGEmakepkg -Acis
 

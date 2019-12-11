@@ -1,37 +1,26 @@
-Create, extract files
+# Create, extract files
 
-Create:
+# Create:
+tar -cvf file.tar /some/pathtar -cvJf file.tar.xz /some/pathtar -cvzf file.tar.gz /some/pathtar -cvjf file.tar.bz2 /some/path
 
-    tar -cvf file.tar /some/path
-    tar -cvJf file.tar.xz /some/path
-    tar -cvzf file.tar.gz /some/path
-    tar -cvjf file.tar.bz2 /some/path
+# Extract:
+tar -xvf file.tartar -xvJf file.tar.xztar -xvzf file.tar.gztar -xvjf file.tar.bz2tar -xvf file.tar -C /some/path # Untar to directory
 
-Extract:
+# List contents:
+tar -tf file.tartar -tvf file.tar # Like ls -l
 
-    tar -xvf file.tar
-    tar -xvJf file.tar.xz
-    tar -xvzf file.tar.gz
-    tar -xvjf file.tar.bz2
-    tar -xvf file.tar -C /some/path # Untar to directory
+# Options:
 
-List contents:
+# - `-c` Create archive
+# - `-x` Extract
+# - `-t --list` List contents
+# - `-f file` File name
+# - `-v` Verbose (optional)
+# - `-z` Compress using gzip
+# - `-j` Compress using bz2 (better)
 
-    tar -tf file.tar
-    tar -tvf file.tar # Like ls -l
+# More info:
 
-Options:
-
-- `-c` Create archive
-- `-x` Extract
-- `-t --list` List contents
-- `-f file` File name
-- `-v` Verbose (optional)
-- `-z` Compress using gzip
-- `-j` Compress using bz2 (better)
-
-More info:
-
-- Dash vs. no dash: <https://serverfault.com/a/474567>
-- <https://xkcd.com/1168/>
+# - Dash vs. no dash: <https://serverfault.com/a/474567>
+# - <https://xkcd.com/1168/>
 

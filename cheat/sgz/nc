@@ -1,21 +1,12 @@
-Netcat: amazing TCP/UDP tool
+# Netcat: amazing TCP/UDP tool
 
-`ncat` is a modern version of this.
+# `ncat` is a modern version of this.
 
-Scan open ports:
+# Scan open ports:
+nc -zv <host> 80nc -zv <host> 22 80 8080nc -zv <host> 20-30
 
-    nc -zv <host> 80
-    nc -zv <host> 22 80 8080
-    nc -zv <host> 20-30
+# Use manyally a HTTP connection (like `telnet`):
+$ nc www.google.com 80 # Write manually the next linesGET / HTTP/1.1Host: www.google.com[response...]
 
-Use manyally a HTTP connection (like `telnet`):
-
-    $ nc www.google.com 80 # Write manually the next lines
-    GET / HTTP/1.1
-    Host: www.google.com
-    
-    [response...]
-
-Compress a file and send it to the network:
-
-    tar cfp - /some/dir | gzip -c | nc -w 3 othermachine 1234
+# Compress a file and send it to the network:
+tar cfp - /some/dir | gzip -c | nc -w 3 othermachine 1234

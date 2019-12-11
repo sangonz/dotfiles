@@ -1,21 +1,14 @@
-File synchronization
+# File synchronization
 
 
-Copy keeping file metadata (user, permissions...):
+# Copy keeping file metadata (user, permissions...):
+rsync -a source/ dest/
 
-    rsync -a source/ dest/
+# Delete files in destination which are not in the source:
+rsync --delete src dst
 
-Delete files in destination which are not in the source:
+# Exclude certain directories:
+rsync --exclude '.*' --exclude 'dir' src dst
 
-    rsync --delete src dst
-
-Exclude certain directories:
-
-    rsync --exclude '.*' --exclude 'dir' src dst
-
-Show overall percentage (good when many recursive files):
-
-    # Install brew rsync first
-    brew tap homebrew/dupes; brew install rsync
-    
-    rsync -a --info=progress2 source/ dest/
+# Show overall percentage (good when many recursive files):
+# Install brew rsync firstbrew tap homebrew/dupes; brew install rsyncrsync -a --info=progress2 source/ dest/

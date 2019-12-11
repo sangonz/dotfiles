@@ -1,22 +1,15 @@
-A successful branching model
+# A successful branching model
 
-<http://nvie.com/posts/a-successful-git-branching-model/>
+# <http://nvie.com/posts/a-successful-git-branching-model/>
 
-Initiate branches:
+# Initiate branches:
+git flow initgit flow init -d   # Default names
 
-    git flow init
-    git flow init -d   # Default names
+# List all feature branches:
+git flow feature
 
-List all feature branches:
+# Start and finish:
+git flow feature start mytestgit flow feature finish mytest
 
-    git flow feature
-
-Start and finish:
-
-    git flow feature start mytest
-    git flow feature finish mytest
-
-Create a release:
-
-    git flow release start relname
-    git flow release finish relname
+# Create a release:
+git flow release start relnamegit flow release finish relname
