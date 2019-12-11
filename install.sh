@@ -10,14 +10,18 @@ P_ERR="\e[31m  ✘ \e[0m"
 
 link_dest() {
     case "$(uname)" in
-        "Linux")
-            readlink -f $1
+<<<<<<< HEAD
+	"Linux")
+=======
+    	"Linux")
+>>>>>>> Refactor cheat git
+            readlink $1
             ;;
-        "Darwin")
+        "Darwin" | "FreeBSD")
             stat -f '%Y' $1
             ;;
         *)
-            echo "Only Linux and macOS supported"
+            echo "Only Linux and macOS supported" > /dev/stderr
             exit -1
             ;;
     esac
@@ -31,6 +35,8 @@ function install_ln {
         ln -s $target $dest
         printf "$P_NEW $dest\n"
     else
+        echo target: $target
+        echo linkds: $(link_dest $dest)
         if [[ $(link_dest $dest) == "$target" ]]; then
             printf "$P_CHK $dest\n"
         else
