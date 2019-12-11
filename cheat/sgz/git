@@ -1,0 +1,62 @@
+Distributed version control system
+
+## Config
+
+Prepare:
+
+    git config user.name "My name"
+    git config user.email my@email
+    
+    git config --list   # Show configs
+
+Alias:
+
+    git config --global alias.uncommit 'reset HEAD^'
+
+## Use
+
+Basic use:
+
+    git init
+    git add file.txt
+    git status
+    git commit -m "Message"
+
+Commit:
+
+    git commit -a   # Commit all changes
+
+Stash:
+
+    git stash      # Save the stash
+    git stash pop  # Apply and delete the stash
+
+    git stash apply
+    git stash list
+    git stash drop stash@{0}
+
+## Undo
+
+Remove from stage:
+
+    git add file
+    git reset file
+
+Remove last commit while keeping files intact:
+
+    git reset HEAD^
+
+## Advanced
+
+Modify author info in all commits:
+
+    git filter-branch --env-filter '
+        # You can use shell script code here
+        export GIT_AUTHOR_NAME="Now author name"
+        export GIT_AUTHOR_EMAIL="author@example.com"
+    ' --tag-name-filter cat -- --branches --tags
+
+This leaves a original branch without modifications under `refs/original/*`.
+Once you review your filtered changes and you are ok with them, you can erase the backup branch:
+
+    git update-ref -d refs/original/refs/heads/master

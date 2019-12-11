@@ -1,0 +1,6 @@
+
+
+
+Ping a whole subnetwork
+
+    nmap -sP 10.1.10.0/24

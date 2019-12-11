@@ -1,0 +1,5 @@
+Transliterate
+
+To lowercase:
+
+    tr '[:upper:]' '[:lower:]'

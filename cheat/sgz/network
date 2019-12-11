@@ -1,0 +1,53 @@
+Network tools
+
+netstat - Network Statistics
+
+    netstat      # Displays open ports
+    netstat -r   # Routing table
+
+nmap - Scan open ports
+
+nc - Netcat: amazing TCP/UDP tool
+> doc nc
+
+telnet
+
+curl
+
+tcpdump - TCP sniffer
+
+traceroute - Show the route of packets
+
+    traceroute -I google.com
+
+iperf - Assess bandwidth available between two hosts
+
+arp - Print the ARP table
+
+    $ arp -a
+
+
+## DNS
+
+host - Find the IP of a host
+
+    $ host amazon.com
+    amazon.com has address 176.32.98.166
+    amazon.com has address 205.251.242.103
+
+hostname - Print the name of the host in the network
+
+    $ hostname -f
+    myhost.company.com
+
+dig - Dump DNS records. Uses the OS resolver.
+
+nslookup - Perform a DNS resolution. Uses its own resolver.
+
+
+
+---
+
+More:
+
+- [miglen/linux-networking-toools.md](https://gist.github.com/miglen/70765e663c48ae0544da08c07006791f)

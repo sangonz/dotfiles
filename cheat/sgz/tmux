@@ -1,0 +1,41 @@
+Terminal multiplexer (like screen)
+
+start new with session name:
+
+    tmux
+    
+attach:
+
+    tmux a
+    tmux attach
+    tmux a -t session_id
+
+list sessions:
+
+    tmux ls
+
+kill session:
+
+    tmux kill-session -t session_id
+
+Detach from the current session:
+
+    Ctrl-b + d
+
+## Windows/Panes
+
+Split window:
+
+    C-b %    # Split vertically
+    C-b "    # Split horizontally
+
+Resize pane:
+
+    C-b Ctrl-arrow   # Keep Ctrl pressed
+    C-b Alt-arrow    # Same as Ctrl but faster
+
+Scroll:
+
+    C-b Page-Up
+    C-b Page-Down
+

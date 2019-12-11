@@ -1,0 +1,5 @@
+Create links
+
+Symbolic link:
+
+    ln -s source target

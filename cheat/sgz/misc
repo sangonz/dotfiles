@@ -1,0 +1,19 @@
+Miscellanea: epub
+
+## epub file format
+
+- Rename .epub to .zip and uncompress is
+- Check images, resize, optimize...
+
+To recompress the directory into a new book.epub:
+
+    cd epub-contents
+    
+    # The file mimetype must go first and uncompressed
+    zip -X0 book.epub mimetype
+    
+    # Add the rest excluding trash
+    zip -rDX9 book.epub * -x "*.DS_Store" -x mimetype
+
+You're done!
+

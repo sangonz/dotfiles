@@ -1,0 +1,37 @@
+Create, extract files
+
+Create:
+
+    tar -cvf file.tar /some/path
+    tar -cvJf file.tar.xz /some/path
+    tar -cvzf file.tar.gz /some/path
+    tar -cvjf file.tar.bz2 /some/path
+
+Extract:
+
+    tar -xvf file.tar
+    tar -xvJf file.tar.xz
+    tar -xvzf file.tar.gz
+    tar -xvjf file.tar.bz2
+    tar -xvf file.tar -C /some/path # Untar to directory
+
+List contents:
+
+    tar -tf file.tar
+    tar -tvf file.tar # Like ls -l
+
+Options:
+
+- `-c` Create archive
+- `-x` Extract
+- `-t --list` List contents
+- `-f file` File name
+- `-v` Verbose (optional)
+- `-z` Compress using gzip
+- `-j` Compress using bz2 (better)
+
+More info:
+
+- Dash vs. no dash: <https://serverfault.com/a/474567>
+- <https://xkcd.com/1168/>
+
