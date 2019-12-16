@@ -27,7 +27,8 @@ function install_ln {
     file="$1"
     target=".dotfiles/$file"
     dest="$HOME/.$file"
-    if [[ ! -e $dest ]]; then
+    # -e does not work with links; we must test -e and -h
+    if [[ ! ( -e $dest || -h $dest ) ]]; then
         ln -s $target $dest
         printf "$P_NEW $dest\n"
     else
