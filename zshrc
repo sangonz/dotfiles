@@ -2,7 +2,7 @@ export CHEAT_CONFIG_PATH="~/.dotfiles/cheat/conf.yml"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="$HOME/.cargo/bin:$HOME/go/bin:$PATH"
+export PATH="$HOME/.dotfiles/bin:$HOME/.cargo/bin:$HOME/go/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -107,3 +107,4 @@ alias ip='ip --color'
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /home/santi/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
