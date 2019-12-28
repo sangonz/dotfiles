@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+msg="$@"
+
+BOX_LR="═"
+BOX_UD="║"
+BOX_UL="╝"
+BOX_UR="╚"
+BOX_DL="╗"
+BOX_DR="╔"
+BOX_DLR="╦"
+
+len="15"
+printf '%s' "$BOX_DR"
+seq 0 $len | xargs -I{} printf '%s' "$BOX_LR"
+printf '%s\n' "$BOX_DL"
+for w in $msg; do
+    # D="$w"    # input string
+    # BS=$len     # buffer size
+    # L=$(((BS-${#D})/2))
+    # [ $L -lt 0 ] && L=0
+    # printf "$BOX_UD %${L}s%s%${L}s $BOX_UD\n" "" $D ""
+    padding=3
+    let left=len-padding
+    printf "$BOX_UD %${padding}s%-${left}s$BOX_UD\n" '' "$w"
+done
+printf '%s' "$BOX_UR"
+seq 0 5 | xargs -I{} printf '%s' "$BOX_LR"
+printf '%s' "$BOX_DLR"
+seq 7 $len | xargs -I{} printf '%s' "$BOX_LR"
+printf '%s\n' "$BOX_UL"
+echo \
+"(\__/) ║
+(•ㅅ•) ║
+/ 　 づ"
+
