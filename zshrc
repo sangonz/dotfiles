@@ -107,4 +107,4 @@ alias ip='ip --color'
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /home/santi/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.dotfiles/config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
