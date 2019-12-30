@@ -23,10 +23,9 @@ link_dest() {
     esac
 }
 
-function install_ln {
-    file="$1"
-    target=".dotfiles/$file"
-    dest="$HOME/.$file"
+install_link() {
+    local target="$1"
+    local dest="$2"
     # -e does not work with links; we must test -e and -h
     if [[ ! ( -e $dest || -h $dest ) ]]; then
         ln -s $target $dest
@@ -38,6 +37,14 @@ function install_ln {
             printf "$P_ERR $dest\n"
         fi
     fi
+}
+
+install_ln() {
+    install_link ".dotfiles/$1" "$HOME/.$1"
+}
+
+install_abs_ln() {
+    install_link "$HOME/.dotfiles/$1" "$HOME/.$1"
 }
 
 install_ln bash_aliases
