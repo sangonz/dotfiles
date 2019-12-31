@@ -1,4 +1,5 @@
 export CHEAT_CONFIG_PATH="~/.dotfiles/cheat/conf.yml"
+export EDITOR='nvim'
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -103,6 +104,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+if [[ $(which exa) ]]; then
+    alias ll='exa -l'
+    alias lsa='exa -la'
+fi
 alias v='nvim'
 alias ip='ip --color'
 
