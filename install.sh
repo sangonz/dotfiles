@@ -53,4 +53,5 @@ install_ln vim
 install_ln vimrc
 install_ln gitconfig
 install_ln zshrc
+install_ln tmux.conf
 
