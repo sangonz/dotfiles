@@ -4,18 +4,45 @@
 mysql -u user -p
 
 # Common SQL (mysql shell):
-SHOW DATABASES;USE db_name;SHOW TABLES;# Show all mysql usersSELECT User FROM mysql.user;
+SHOW DATABASES;
+USE db_name;
+SHOW TABLES;
+
+# Show all mysql users
+SELECT User FROM mysql.user;
 
 # Create database, user and grant all privileges (mysql shell):
-CREATE DATABASE db_name;SHOW DATABASES;CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';GRANT ALL PRIVILEGES ON db_name . * TO 'user'@'localhost';GRANT ALL ON db_name.* TO ‘db_user’@’localhost’ IDENTIFIED BY ‘db_password’;
-# To specify only certain privilegesGRANT SELECT, INSERT, DELETE, UPDATE ON [...]
-# Apply privilegesFLUSH PRIVILEGES;
+CREATE DATABASE db_name;
+SHOW DATABASES;
+CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON db_name . * TO 'user'@'localhost';
+GRANT ALL ON db_name.* TO ‘db_user’@’localhost’ IDENTIFIED BY ‘db_password’;
+
+# To specify only certain privileges
+GRANT SELECT, INSERT, DELETE, UPDATE ON [...]
+
+# Apply privileges
+FLUSH PRIVILEGES;
 
 # Export a database (UNIX shell):
-mysqldump test > dump.sqlmysqldump test | gzip > dump.sql.gz# Using user/passwordmysqldump -u user -p db_name > dump.sql# Several databases at oncemysqldump --databases db1 db2 db3 > dump.sql
+mysqldump test > dump.sql
+mysqldump test | gzip > dump.sql.gz
+
+# Using user/password
+mysqldump -u user -p db_name > dump.sql
+
+# Several databases at once
+mysqldump --databases db1 db2 db3 > dump.sql
 
 
 # Import a database (UNIX shell):
-mysql -u username -p db_name < dump.sql# Import a gzipped dbzcat dump.sql.gz | mysql -u user -p -h localhost db_name
+mysql -u username -p db_name < dump.sql
+
+# Import a gzipped db
+zcat dump.sql.gz | mysql -u user -p -h localhost db_name
+
 # Import from inside (mysql shell):
-CREATE DATABASE db_name;USE db_name;SOURCE dump.sql;
+CREATE DATABASE db_name;
+USE db_name;
+SOURCE dump.sql;
+

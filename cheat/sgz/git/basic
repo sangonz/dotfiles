@@ -36,3 +36,7 @@ git filter-branch --env-filter '    # You can use shell script code here    expo
 # This leaves a original branch without modifications under `refs/original/*`.
 # Once you review your filtered changes and you are ok with them, you can erase the backup branch:
 git update-ref -d refs/original/refs/heads/master
+
+# Print file as in commit
+git show  <hash>:<file>
+
