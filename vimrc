@@ -27,10 +27,12 @@ call plug#begin()
     Plug 'moll/vim-bbye'                " Handle buffer closing properly: <leader>q
     Plug 'sk1418/HowMuch'               " Calculator v-select <leader>?=
     Plug 'junegunn/vim-emoji'           " Emojis: ins-mode <c-x><c-u>
+    Plug 'mattn/emmet-vim'              " tag<c-y>,
     " Plug 'powerline/powerline'
     " Plug 'terryma/vim-multiple-cursors'
     " Plug 'kana/vim-textobj-line'
     Plug 'morhetz/gruvbox'              " Color scheme
+    Plug 'mustache/vim-mustache-handlebars'
 call plug#end()
 
 syntax on
@@ -155,6 +157,11 @@ xmap <Space>m <Plug>(quickhl-manual-this)
 " xmap <Space>m <Plug>(quickhl-manual-this-whole-word)
 nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
+
+" Tidy JSON, HTML, XML
+command! PrettyPrintJSON %!python -m json.tool
+command! PrettyPrintHTML !tidy -mi -wrap 0 %
+command! PrettyPrintXML !tidy -mi -wrap 0 %
 
 
 "
