@@ -1,3 +1,7 @@
+- defaults:
+    link:
+      relink: true
+
 - clean: ['~']
 
 - link:
@@ -7,4 +11,6 @@
     ~/.vimrc:
     ~/.zsh:
     ~/.tmux.conf:
+    ~/.config/nvim: config/nvim
+    ~/.config/zsh: config/zsh
 
