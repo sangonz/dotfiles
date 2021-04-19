@@ -1,14 +1,33 @@
 [user]
     email = 219253+santigz@users.noreply.github.com
-    name = sgz
+    name = Santi Gonzalez
 
 [include]
     path = ~/.dotfiles/gitalias
 
-[diff]
-    tool = meld
-[difftool]
-    prompt = false
-[difftool "meld"]
-    cmd = meld "$LOCAL" "$REMOTE"
+; [diff]
+;     tool = vimdiff
+; [difftool]
+;     prompt = false
+; [difftool "meld"]
+;     cmd = meld "$LOCAL" "$REMOTE"
 
+[core]
+	pager = $HOME/diff-so-fancy/diff-so-fancy | less --tabs=4 -RFX
+
+[interactive]
+        diffFilter = delta --color-only
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse

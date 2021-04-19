@@ -1,26 +1,26 @@
 # Create, extract files
 
-# Create:
-tar -cvf file.tar /some/pathtar -cvJf file.tar.xz /some/pathtar -cvzf file.tar.gz /some/pathtar -cvjf file.tar.bz2 /some/path
+# Create/Compress:
+tar -cvf file.tar /some/path
+tar -cvzf file.tar.gz /some/path
+tar -cvjf file.tar.bz2 /some/path
+tar -cvJf file.tar.xz /some/path
 
 # Extract:
-tar -xvf file.tartar -xvJf file.tar.xztar -xvzf file.tar.gztar -xvjf file.tar.bz2tar -xvf file.tar -C /some/path # Untar to directory
+tar -xvf file.tar
+tar -xvzf file.tar.gz # -z (gz) -j (bz2) -J (xz)
+tar -xvf file.tar -C /some/path # Untar to directory
 
 # List contents:
-tar -tf file.tartar -tvf file.tar # Like ls -l
+tar -tf file.tar # Like ls
+tar -tvf file.tar # Like ls -l
 
-# Options:
-
-# - `-c` Create archive
-# - `-x` Extract
-# - `-t --list` List contents
-# - `-f file` File name
-# - `-v` Verbose (optional)
-# - `-z` Compress using gzip
-# - `-j` Compress using bz2 (better)
+# SSH piping
+tar -cvzf - /path | ssh user@host "cat > file.gz"
+tar -cvzf - /path | ssh user@host "tar -xzf file.gz"
+ssh user@host "tar -czf - /some/dir" | tar -xvzf -
 
 # More info:
-
 # - Dash vs. no dash: <https://serverfault.com/a/474567>
 # - <https://xkcd.com/1168/>
 

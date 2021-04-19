@@ -1,0 +1,17 @@
+# Compress to mp4, bitrate video (x.264) 1.5Mbps, audio (AAC) 128Kbps
+ffmpeg -i source.mp4 -c:v libx264 -b:v 1.5M -c:a aac -b:a 128k target.mp4
+
+# VP9 is about 20-50% more efficient => less bitrate for same quality
+ffmpeg -i source.mp4 -c:v libvpx-vp9 -b:v 1M -c:a libopus -b:a 128k target.webm
+
+# VP8 is more compatible
+ffmpeg -i source.mp4 -c:v libvpx -b:v 1M -c:a libopus -b:a 128k target.webm
+
+# Scale the video
+ffmpeg -i source.mp4 <video-audio> -filter:v scale=960x540 target.webm
+
+# Output frame
+ffmpeg -i input.mp4 -ss 00:00:14.435 -vframes 1 out.png
+
+# Great: https://gist.github.com/Vestride/278e13915894821e1d6f
+

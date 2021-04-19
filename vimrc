@@ -20,15 +20,19 @@ call plug#begin()
     Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
     Plug 'junegunn/fzf.vim'
     Plug 'ryanoasis/vim-devicons'
-    Plug 'junegunn/vim-easy-align'
+    Plug 'junegunn/vim-easy-align'      " Block = align: vipga=
     Plug 'tpope/vim-surround'           " Quotes/(t)ags: cs"', ysiw', cst<p>, VS<p>
     Plug 'dhruvasagar/vim-table-mode'   " Talbe mode: :TableModeToggle, <leader>tm
     Plug 'vim-airline/vim-airline'
     Plug 'moll/vim-bbye'                " Handle buffer closing properly: <leader>q
+    Plug 'sk1418/HowMuch'               " Calculator v-select <leader>?=
+    Plug 'junegunn/vim-emoji'           " Emojis: ins-mode <c-x><c-u>
+    Plug 'mattn/emmet-vim'              " tag<c-y>,
     " Plug 'powerline/powerline'
     " Plug 'terryma/vim-multiple-cursors'
     " Plug 'kana/vim-textobj-line'
     Plug 'morhetz/gruvbox'              " Color scheme
+    Plug 'mustache/vim-mustache-handlebars'
 call plug#end()
 
 syntax on
@@ -97,8 +101,12 @@ nmap <SID>ws <Nop>
 
 " Buffers
 :nnoremap <Leader>q :Bdelete<CR>
-map <leader>j :bn<cr>
-map <leader>k :bp<cr>
+map <leader>j :bp<cr>
+map <leader>h :bp<cr>
+map <leader>k :bn<cr>
+map <leader>p :bn<cr>
+map <c-h> :bp<cr>
+map <c-l> :bn<cr>
 
 " Switch line wrapping
 " noremap <c-w> :set wrap!<cr>
@@ -123,6 +131,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" Emojis
+set completefunc=emoji#complete
+" Esto no funciona!!
+vnoremap <leader>e :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g
 
 
 "
@@ -145,6 +157,11 @@ xmap <Space>m <Plug>(quickhl-manual-this)
 " xmap <Space>m <Plug>(quickhl-manual-this-whole-word)
 nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
+
+" Tidy JSON, HTML, XML
+command! PrettyPrintJSON %!python -m json.tool
+command! PrettyPrintHTML !tidy -mi -wrap 0 %
+command! PrettyPrintXML !tidy -mi -wrap 0 %
 
 
 "
