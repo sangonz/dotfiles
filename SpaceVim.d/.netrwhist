@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/santi/.SpaceVim.d'
+let g:netrw_dirhist_3='/home/santi/.SpaceVim.d/autoload'
+let g:netrw_dirhist_2='/home/santi/.SpaceVim.d'
+let g:netrw_dirhist_1='sftp://crowdfightcovid19.wordpress.com/sftp.wp.com/'

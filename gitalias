@@ -1,6 +1,18 @@
 # Taken from https://github.com/GitAlias/gitalias
 [alias]
     a = add
+    a = add
+    aa = add --all
+
+    b = branch
+
+    c = commit
+    cm = commit -m
+    cam = commit --amend --message
+    o = checkout
+
+    s = status
+    ss = status --short
     aa = add --all
 
     b = branch
@@ -34,3 +46,4 @@
     #     git searchcommits foobar
     #     git searchcommits foobar src/lib
     searchcommits = !"f() { query=\"$1\"; shift; git log -S\"$query\" \"$@\"; }; f \"$@\""
+

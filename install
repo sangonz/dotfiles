@@ -2,8 +2,20 @@
 
 set -e
 
-CONFIG="install.conf.yaml"
+CONFIG="install-.conf.yaml"
 DOTBOT_DIR="dotbot"
+
+die() { echo "ERROR: no file ${*}"; exit 1; }
+
+# Select config file
+if [[ $(which fzf) ]]; then
+  CONFIG=$(find . -maxdepth 1 -type f -name 'install*.conf.yaml' -printf "%f\n" | sort -n | fzf --reverse --height=20 --header="Select install file")
+else
+  read -rp "Confirm installing $CONFIG [Y/n]: " yes
+fi
+[[ -f $CONFIG ]] || die "ERROR: no file $CONFIG"
+[[ $yes == "n" ]] && exit
+
 
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -13,3 +25,9 @@ git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+
+echo
+echo "SpaceVim was installed, but the fonts were not installed."
+echo "Consider a full manual install:"
+echo "  curl -sLf https://spacevim.org/install.sh | bash"
+ 

@@ -6,11 +6,13 @@
 
 - link:
     ~/.gitconfig:
-    ~/.zshrc:
-    ~/.vim:
-    ~/.vimrc:
-    ~/.zsh:
+    ~/.gitalias:
     ~/.tmux.conf:
-    ~/.config/nvim: config/nvim
+    ~/.zshrc:
+    ~/.SpaceVim:
+    ~/.SpaceVim.d:
+    ~/.vim:
+      path: ~/.SpaceVim
+      relative: true
     ~/.config/zsh: config/zsh
 
