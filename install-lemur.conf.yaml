@@ -2,17 +2,19 @@
     link:
       relink: true
 
-- clean: ['~']
+# Remove dead links pointing to the dotfiles dir
+- clean: ['~', '~/.config']
 
 - link:
-    ~/.gitconfig:
+    ~/.config/cheat: config/cheat
+    ~/.config/zsh: config/zsh
     ~/.gitalias:
-    ~/.tmux.conf:
-    ~/.zshrc:
+    ~/.gitconfig:
     ~/.SpaceVim:
     ~/.SpaceVim.d:
+    ~/.tmux.conf:
     ~/.vim:
       path: ~/.SpaceVim
       relative: true
-    ~/.config/zsh: config/zsh
+    ~/.zshrc:
 
