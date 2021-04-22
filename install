@@ -2,7 +2,7 @@
 
 set -e
 
-CONFIG="install-.conf.yaml"
+CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
 
 die() { echo "ERROR: no file ${*}"; exit 1; }
@@ -11,9 +11,9 @@ die() { echo "ERROR: no file ${*}"; exit 1; }
 if [[ $(which fzf) ]]; then
   CONFIG=$(find . -maxdepth 1 -type f -name 'install*.conf.yaml' -printf "%f\n" | sort -n | fzf --reverse --height=20 --header="Select install file")
 else
+  [[ -f $CONFIG ]] || die "ERROR: file not found $CONFIG"
   read -rp "Confirm installing $CONFIG [Y/n]: " yes
 fi
-[[ -f $CONFIG ]] || die "ERROR: no file $CONFIG"
 [[ $yes == "n" ]] && exit
 
 
@@ -25,6 +25,11 @@ git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+
+
+# Cheat completions
+echo "Downloading cheat.zsh completion"
+curl -Ls https://github.com/cheat/cheat/raw/master/scripts/cheat.zsh > config/zsh/completions/_cheat
 
 echo
 echo "SpaceVim was installed, but the fonts were not installed."
