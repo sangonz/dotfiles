@@ -8,6 +8,8 @@
 
 # All SpaceVim option below [option] section
 [options]
+    automatic_update = true
+
     # set spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
     # layer
@@ -42,8 +44,15 @@
 
 [[custom_plugins]]
   repo = "vimwiki/vimwiki"
+
+[[custom_plugins]]
   repo = "mustache/vim-mustache-handlebars"
+
+[[custom_plugins]]
   repo = "itspriddle/vim-shellcheck"
+
+[[custom_plugins]]
+  name = 'tpope/vim-markdown'
 
 # https://spacevim.org/use-vim-as-a-java-ide/
 [[layers]]
