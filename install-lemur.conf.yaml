@@ -7,6 +7,7 @@
 
 - link:
     ~/.config/cheat: config/cheat
+    ~/.config/ranger: config/ranger
     ~/.config/zsh: config/zsh
     ~/.gitalias:
     ~/.gitconfig:
