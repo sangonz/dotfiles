@@ -2,20 +2,12 @@
 
 set -e
 
-CONFIG="install.conf.yaml"
+CONFIG=""
 DOTBOT_DIR="dotbot"
 
-die() { echo "ERROR: no file ${*}"; exit 1; }
+die() { echo "ERROR: ${*}"; exit 1; }
 
-# Select config file
-if [[ $(which fzf) ]]; then
-  CONFIG=$(find . -maxdepth 1 -type f -name 'install*.conf.yaml' -printf "%f\n" | sort -n | fzf --reverse --height=20 --header="Select install file")
-else
-  [[ -f $CONFIG ]] || die "ERROR: file not found $CONFIG"
-  read -rp "Confirm installing $CONFIG [Y/n]: " yes
-fi
-[[ $yes == "n" ]] && exit
-
+[[ "$1" ]] && CONFIG="$1" || die "expected config file, eg: $0 install.conf.yaml"
 
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
